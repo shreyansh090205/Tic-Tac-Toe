@@ -1,0 +1,155 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    background-color: #AB2346;
+    text-align: center;
+}
+.container
+{
+    /* border:2px solid yellow; */
+    height: 70vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.game{
+    /* border:2px solid red; */
+    height: 60vmin;
+    width: 60vmin;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap:1.5vmin;
+}
+
+.box{
+    border:none;
+    height: 18vmin;
+    width: 18vmin;
+    border-radius: 1rem;
+    box-shadow: 0 0 1rem rgba(0,0,0,0.3);
+    font-size: 8vmin;
+    color: #C9DAEA;
+    background-color: #191516 ;
+}
+#reset
+{
+    padding: 1rem;
+    font-size: 1.25rem;
+    background-color: #C9DAEA;
+    color: #000;
+    border-radius: 1rem;
+    border: none;
+}
+
+.msg-container {
+    position: fixed;
+    top: 40%;
+    left: 50%;
+    width: 100vw; /* Adjust width based on content */
+    height: 50vh; /* Adjust height based on content */
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black background */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 999; /* Ensures it stays on top */
+    transform: translate(-50%, -50%); /* Centers the container */
+    border-radius: 10px; 
+}
+
+/* #newGame
+{
+    padding: 1rem;
+    font-size: 1.25rem;
+    background-color: #C9DAEA;
+    color: #000;
+    border-radius: 1rem;
+    border: none;
+} */
+.msg-container button {
+    /* padding: 10px 20px;
+    font-size: 1rem;
+    cursor: pointer; */
+    padding: 1rem;
+    font-size: 1.25rem;
+    background-color: #C9DAEA;
+    color: #000;
+    border-radius: 1rem;
+    border: none;
+    
+}
+#msg
+{
+     color: #ffffff;
+    font-size: 5vmin; 
+    font-family: "Fredoka", sans-serif;
+    /* font-size: 2rem; */
+    text-align: center;
+    margin-bottom: 20px;
+}
+.hide
+{
+    display:none;
+}
+h1
+{
+    font-family: "Exo 2", sans-serif;
+    font-size: 4rem;
+    color: #C9DAEA;
+    background-color: #0000006d;
+    
+}
+h1 span {
+    animation: animate 3s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
+
+.text1 {
+    --color1: #e48686;
+    --color2: #D0E6A4;
+    --color3: #FBDD95;
+    --color4: #FFB6C1;
+    --color5: #87CEFA;
+}
+
+.text2 {
+    --color1: #F1867A;
+    --color2: #CDABDA;
+    --color3: #9AD2D2;
+    --color4: #FFC0CB;
+    --color5: #ADD8E6;
+}
+
+.text3 {
+    --color1: #F5CAC3;
+    --color2: #9AD2D2;
+    --color3: #F7EDE2;
+    --color4: #E6E6FA;
+    --color5: #FFDDC1;
+}
+
+@keyframes animate {
+    0% {
+        color: var(--color1);
+    }
+    20% {
+        color: var(--color2);
+    }
+    40% {
+        color: var(--color3);
+    }
+    60% {
+        color: var(--color4);
+    }
+    80% {
+        color: var(--color5);
+    }
+    100% {
+        color: var(--color1);
+    }
+}
