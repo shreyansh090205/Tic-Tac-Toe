@@ -16,12 +16,11 @@ const winPatterns = [
     [6, 7, 8],
 ];
 
-const resetGame =()=>
-    {
-        let turnO = true;
-        enableBoxes();
-        msgContainer.classList.add("hide");
-    }
+const resetGame = () => {
+    let turnO = true;
+    enableBoxes();
+    msgContainer.classList.add("hide");
+}
 
 boxes.forEach((box) => {
     box.addEventListener("click", () => {
@@ -37,38 +36,52 @@ boxes.forEach((box) => {
         checkWinner();
     })
 });
-const disableBoxes=()=>
-{
-    for(let box of boxes)
-        {
-            box.disabled =true;
-        }
+const disableBoxes = () => {
+    for (let box of boxes) {
+        box.disabled = true;
+    }
 }
 
-const enableBoxes=()=>
-{
-    for(let box of boxes)
-        {
-            box.disabled =false;
-            box.innerText ="";
-        }
+const enableBoxes = () => {
+    for (let box of boxes) {
+        box.disabled = false;
+        box.innerText = "";
+    }
 }
-const showWinner=(winner)=>{
-    msg.innerText =`Congratulations, Winner is ${winner}`;
+const showWinner = (winner) => {
+    msg.innerText = `Congratulations 🎉, Winner is ${winner}`;
     msgContainer.classList.remove("hide");/*classList= msg-container hide*/
     disableBoxes();
 }
+const draw = () => {
+    msg.innerText = `😎,\n It's a Draw`;
+    msgContainer.classList.remove("hide");
+};
 const checkWinner = () => {
+    let isDraw = true;
+
     for (let pattern of winPatterns) {
         let pos1Val = boxes[pattern[0]].innerText;
         let pos2Val = boxes[pattern[1]].innerText;
         let pos3Val = boxes[pattern[2]].innerText;
-        if (pos1Val !=""&&pos2Val != ""&&pos3Val != "") {
+
+        if (pos1Val === "" || pos2Val === "" || pos3Val === "") {
+            isDraw = false;
+            continue;
+        }
+
+        if (pos1Val != "" && pos2Val != "" && pos3Val != "") {
             if (pos1Val == pos2Val && pos2Val == pos3Val) {
                 showWinner(pos1Val);
+                return;
             }
         }
     }
+    // If no winner and all boxes are filled, declare a draw
+    if (isDraw) {
+        draw();
+    }
 };
-newGameBtn.addEventListener("click",resetGame);
-resetBtn.addEventListener("click",resetGame);
+
+newGameBtn.addEventListener("click", resetGame);
+resetBtn.addEventListener("click", resetGame);
